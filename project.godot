@@ -11,6 +11,7 @@ config_version=5
 [application]
 
 config/name="Save the Village"
+run/main_scene="res://scenes/world/world.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://icon.svg"
 
