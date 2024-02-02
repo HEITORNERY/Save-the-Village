@@ -77,6 +77,7 @@ func _on_animation_animation_finished(anim_name: String) -> void:
 
 
 func _on_attack_area_body_entered(body) -> void:
+	print(body.name)
 	if body.is_in_group('enemy'):
 		body.queue_free()
 	
