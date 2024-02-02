@@ -1,0 +1,131 @@
+[gd_scene load_steps=10 format=3 uid="uid://by6u0jxfhdbrq"]
+
+[ext_resource type="Script" path="res://scripts/enemy/slime/slime.gd" id="1_2ftyf"]
+[ext_resource type="Texture2D" uid="uid://c8gw8bioipr6r" path="res://assets3/slime.png" id="1_ffdpw"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_remnf"]
+size = Vector2(14, 11)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_0v6uw"]
+radius = 52.9528
+
+[sub_resource type="Animation" id="Animation_onjgf"]
+resource_name = "idle"
+length = 0.5
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Texture:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 0, 1, 2, 3]
+}
+
+[sub_resource type="Animation" id="Animation_0eyav"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Texture:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_1pmv5"]
+resource_name = "walk"
+length = 0.6
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Texture:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [7, 8, 9, 10, 11, 12]
+}
+
+[sub_resource type="Animation" id="Animation_fmf1c"]
+resource_name = "attack"
+length = 0.6
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Texture:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [14, 15, 16, 17, 18, 19, 20]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [false],
+"method": &"set_physics_process"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_elyks"]
+_data = {
+"RESET": SubResource("Animation_0eyav"),
+"attack": SubResource("Animation_fmf1c"),
+"idle": SubResource("Animation_onjgf"),
+"walk": SubResource("Animation_1pmv5")
+}
+
+[node name="Slime" type="CharacterBody2D" node_paths=PackedStringArray("_animation", "_texture") groups=["enemy"]]
+collision_layer = 4
+script = ExtResource("1_2ftyf")
+_animation = NodePath("Animation")
+_texture = NodePath("Texture")
+
+[node name="Texture" type="Sprite2D" parent="."]
+texture = ExtResource("1_ffdpw")
+centered = false
+hframes = 7
+vframes = 5
+
+[node name="Collision" type="CollisionShape2D" parent="."]
+position = Vector2(16, 17.5)
+shape = SubResource("RectangleShape2D_remnf")
+
+[node name="DetectionArea" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
+
+[node name="Collision" type="CollisionShape2D" parent="DetectionArea"]
+visible = false
+position = Vector2(17, 19)
+shape = SubResource("CircleShape2D_0v6uw")
+
+[node name="Animation" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_elyks")
+}
+autoplay = "idle"
+
+[connection signal="body_entered" from="DetectionArea" to="." method="_on_detection_area_body_entered"]
+[connection signal="body_exited" from="DetectionArea" to="." method="_on_detection_area_body_exited"]
+[connection signal="animation_finished" from="Animation" to="." method="_on_animation_animation_finished"]

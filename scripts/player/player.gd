@@ -1,10 +1,13 @@
 extends CharacterBody2D
 
 # CRiar a variável para a velocidade do player
-@export var speed : int = 35
+@export var speed : int = 70
 
 # Guardar referência ao animation player
 @onready var animation : AnimationPlayer = $Animation
+
+# vida do player
+@export var health : int = 20
 
 # Criar uma função para lidar com os inputs
 func handleInput() -> void:
@@ -41,8 +44,39 @@ func _idle() -> void:
 func _physics_process(_delta: float) -> void:
 	handleInput()
 	move_and_slide()
+	_attack()
 	updateAnimation()
 	_idle()
+	_dead()
 	
-	
+func _on_damage_area_body_entered(body) -> void:
+	if body.is_in_group('enemy'):
+		health -= body.damage
+		animation.play('hit')
+		
+func _dead() -> void:
+	if health == 0:
+		animation.play('dead')
+		await get_tree().create_timer(1).timeout
+		get_tree().reload_current_scene()
+		
+func _attack() -> void:
+	if Input.is_action_just_pressed('attack_right'):
+		animation.play('attack_right')
+	elif Input.is_action_just_pressed('attack_left'):
+		animation.play('attack_left')
+	elif Input.is_action_just_pressed('attack_up'):
+		animation.play('attack_up')
+	elif Input.is_action_just_pressed('attack_down'):
+		animation.play('attack_down')
+
+func _on_animation_animation_finished(anim_name: String) -> void:
+	match anim_name:
+		'hit':
+			set_physics_process(true)
+
+
+func _on_attack_area_body_entered(body) -> void:
+	if body.is_in_group('enemy'):
+		body.queue_free()
 	
