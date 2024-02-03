@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://vcvoo6iegkvv"]
+[gd_scene load_steps=12 format=3 uid="uid://vcvoo6iegkvv"]
 
 [ext_resource type="Script" path="res://scripts/enemy/bluefire/blue_fire.gd" id="1_jec5o"]
 [ext_resource type="Texture2D" uid="uid://dj4lbhy0706i4" path="res://assets3/fogoazul.png" id="1_vgm8c"]
@@ -121,10 +121,52 @@ tracks/1/keys = {
 "update": 0,
 "values": [Color(1, 0, 0, 1), Color(1, 1, 1, 1)]
 }
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [false],
+"method": &"set_physics_process"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_pmhec"]
+resource_name = "dead"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Texture:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Texture:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_4r5hn"]
 _data = {
 "RESET": SubResource("Animation_cjh7t"),
+"dead": SubResource("Animation_pmhec"),
 "hit": SubResource("Animation_32ipa"),
 "walk_down": SubResource("Animation_usnt8"),
 "walk_left": SubResource("Animation_0xx2c"),
