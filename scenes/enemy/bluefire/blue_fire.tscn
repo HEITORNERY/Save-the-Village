@@ -3,6 +3,21 @@
 [ext_resource type="Script" path="res://scripts/enemy/bluefire/blue_fire.gd" id="1_jec5o"]
 [ext_resource type="Texture2D" uid="uid://dj4lbhy0706i4" path="res://assets3/fogoazul.png" id="1_vgm8c"]
 
+[sub_resource type="Animation" id="Animation_cjh7t"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Texture:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
 [sub_resource type="Animation" id="Animation_usnt8"]
 resource_name = "walk_down"
 length = 0.4
@@ -19,23 +34,8 @@ tracks/0/keys = {
 "values": [0, 4, 8, 12]
 }
 
-[sub_resource type="Animation" id="Animation_cjh7t"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Texture:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [0]
-}
-
-[sub_resource type="Animation" id="Animation_b1sjx"]
-resource_name = "walk_up"
+[sub_resource type="Animation" id="Animation_0xx2c"]
+resource_name = "walk_left"
 length = 0.4
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -47,7 +47,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
-"values": [1, 5, 9, 13]
+"values": [2, 6, 10, 14]
 }
 
 [sub_resource type="Animation" id="Animation_ml5r3"]
@@ -66,8 +66,8 @@ tracks/0/keys = {
 "values": [3, 7, 11, 15]
 }
 
-[sub_resource type="Animation" id="Animation_0xx2c"]
-resource_name = "walk_left"
+[sub_resource type="Animation" id="Animation_b1sjx"]
+resource_name = "walk_up"
 length = 0.4
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -79,7 +79,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
-"values": [2, 6, 10, 14]
+"values": [1, 5, 9, 13]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_4r5hn"]

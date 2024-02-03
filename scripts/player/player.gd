@@ -7,7 +7,11 @@ extends CharacterBody2D
 @onready var animation : AnimationPlayer = $Animation
 
 # vida do player
-@export var health : int = 20
+@export var maxHealth : int = 5
+@onready var currentHealth : int = maxHealth
+
+# sinal para quando o inimigo causar dano e atualizar os corações
+signal healthChanged
 
 # Criar uma função para lidar com os inputs
 func handleInput() -> void:
@@ -52,11 +56,12 @@ func _physics_process(_delta: float) -> void:
 	
 func _on_damage_area_body_entered(body) -> void:
 	if body.is_in_group('enemy'):
-		health -= body.damage
+		maxHealth -= body.damage
 		animation.play('hit')
+		healthChanged.emit(currentHealth)
 		
 func _dead() -> void:
-	if health == 0:
+	if maxHealth == 0:
 		animation.play('dead')
 		await get_tree().create_timer(1).timeout
 		get_tree().reload_current_scene()
@@ -87,6 +92,3 @@ func handleCollision() -> void:
 		var collision = get_slide_collision(i)
 		var collider = collision.get_collider()
 
-func _on_damage_area_area_entered(_area) -> void:
-	if _area.name == 'HitBox':
-		print_debug(_area.get_parent().name)

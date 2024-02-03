@@ -11,7 +11,7 @@ var _player_ref = null
 @export var _texture : Sprite2D
 
 # dano do slime
-var damage = 5
+var damage = 1
 
 # Criar a vida do slime
 var health : int = 4
@@ -19,7 +19,7 @@ var health : int = 4
 func _physics_process(_delta: float) -> void:
 	_animate() # Função para executar as animações
 	if _player_ref != null:
-		if _player_ref.health == 0:
+		if _player_ref.maxHealth == 0:
 			velocity = Vector2.ZERO
 			move_and_slide()
 			return

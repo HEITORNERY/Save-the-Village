@@ -17,6 +17,9 @@ var endPosition
 # guardar referência ao marcador da posição final do inimigo
 @export var endPoint : Marker2D
 
+# dano do inimigo
+@export var damage : float = 1
+
 func _ready() -> void:
 	# Fará o inimigo descer três pixels para baixo
 	startPosition = position

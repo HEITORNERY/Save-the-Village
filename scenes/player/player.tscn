@@ -611,6 +611,5 @@ shape = SubResource("RectangleShape2D_yiagh")
 disabled = true
 
 [connection signal="animation_finished" from="Animation" to="." method="_on_animation_animation_finished"]
-[connection signal="area_entered" from="DamageArea" to="." method="_on_damage_area_area_entered"]
 [connection signal="body_entered" from="DamageArea" to="." method="_on_damage_area_body_entered"]
 [connection signal="body_entered" from="AttackArea" to="." method="_on_attack_area_body_entered"]
