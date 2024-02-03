@@ -1,5 +1,7 @@
 extends CharacterBody2D
 
+class_name  player
+
 # CRiar a variável para a velocidade do player
 @export var speed : int = 70
 
@@ -7,12 +9,11 @@ extends CharacterBody2D
 @onready var animation : AnimationPlayer = $Animation
 
 # vida do player
-@export var maxHealth : int = 5
-@onready var currentHealth : int = maxHealth
+@export var maxHealth : float = 5.0
+@onready var currentHealth : float = 5.0
 
-# sinal para quando o inimigo causar dano e atualizar os corações
-signal healthChanged
-
+func _ready() -> void:
+	$Lifebar.show_percentage = false
 # Criar uma função para lidar com os inputs
 func handleInput() -> void:
 	var moveDirection = Input.get_vector('ui_left', 'ui_right', 'ui_up', 'ui_down')
@@ -46,6 +47,7 @@ func _idle() -> void:
 	animation.play('idle' + direction)
 		
 func _physics_process(_delta: float) -> void:
+	$Lifebar.value = maxHealth
 	handleInput()
 	move_and_slide()
 	_attack()
@@ -53,12 +55,11 @@ func _physics_process(_delta: float) -> void:
 	handleCollision()
 	_idle()
 	_dead()
-	
+	recovery_health()
 func _on_damage_area_body_entered(body) -> void:
 	if body.is_in_group('enemy'):
 		maxHealth -= body.damage
 		animation.play('hit')
-		healthChanged.emit(currentHealth)
 		
 func _dead() -> void:
 	if maxHealth == 0:
@@ -91,4 +92,11 @@ func handleCollision() -> void:
 	for i in get_slide_collision_count():
 		var collision = get_slide_collision(i)
 		var collider = collision.get_collider()
+
+func recovery_health() -> void:
+	if maxHealth < 5:
+		await get_tree().create_timer(16).timeout
+		maxHealth += 1
+	else:
+		maxHealth = currentHealth
 

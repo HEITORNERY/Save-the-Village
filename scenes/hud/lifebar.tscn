@@ -1,0 +1,24 @@
+[gd_scene load_steps=3 format=3 uid="uid://cbbdu32iyuwqr"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dsv1j"]
+bg_color = Color(0.0666667, 0.611765, 0, 1)
+corner_radius_top_left = 100
+corner_radius_top_right = 100
+corner_radius_bottom_right = 100
+corner_radius_bottom_left = 100
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_62cap"]
+bg_color = Color(1, 0, 0, 1)
+corner_radius_top_left = 100
+corner_radius_top_right = 100
+corner_radius_bottom_right = 100
+corner_radius_bottom_left = 100
+
+[node name="Lifebar" type="ProgressBar"]
+offset_right = 184.0
+offset_bottom = 27.0
+theme_override_styles/background = SubResource("StyleBoxFlat_dsv1j")
+theme_override_styles/fill = SubResource("StyleBoxFlat_62cap")
+max_value = 5.0
+step = 1.0
+value = 5.0

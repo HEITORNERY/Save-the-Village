@@ -1,7 +1,8 @@
-[gd_scene load_steps=22 format=3 uid="uid://cyuok7e3a1lkd"]
+[gd_scene load_steps=23 format=3 uid="uid://cyuok7e3a1lkd"]
 
 [ext_resource type="Script" path="res://scripts/player/player.gd" id="1_aw6dh"]
 [ext_resource type="Texture2D" uid="uid://xp7oqmoipq5v" path="res://assets3/player.png" id="1_teadb"]
+[ext_resource type="PackedScene" uid="uid://cbbdu32iyuwqr" path="res://scenes/hud/lifebar.tscn" id="3_1sxup"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4kynk"]
 size = Vector2(9, 4)
@@ -67,7 +68,7 @@ tracks/4/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(0, -1)]
+"values": [Vector2(24, 16)]
 }
 
 [sub_resource type="Animation" id="Animation_2h0ts"]
@@ -92,7 +93,7 @@ tracks/1/path = NodePath("AttackArea/Collision:disabled")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.3),
+"times": PackedFloat32Array(0, 0.1, 0.2),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
 "values": [true, false, true]
@@ -107,7 +108,7 @@ tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(2, 22)]
+"values": [Vector2(25, 45)]
 }
 
 [sub_resource type="Animation" id="Animation_oxpvb"]
@@ -159,7 +160,7 @@ tracks/3/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(-11, 14)]
+"values": [Vector2(13, 38)]
 }
 
 [sub_resource type="Animation" id="Animation_7is0r"]
@@ -211,7 +212,7 @@ tracks/3/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(11, 15)]
+"values": [Vector2(35, 37.5)]
 }
 
 [sub_resource type="Animation" id="Animation_8pq43"]
@@ -224,7 +225,7 @@ tracks/0/path = NodePath("AttackArea/Collision:disabled")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.3),
+"times": PackedFloat32Array(0, 0.1, 0.2),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
 "values": [true, false, true]
@@ -251,7 +252,7 @@ tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(0, -1)]
+"values": [Vector2(24, 21)]
 }
 
 [sub_resource type="Animation" id="Animation_qu8mm"]
@@ -565,10 +566,10 @@ _data = {
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rjbwa"]
-size = Vector2(10, 17)
+size = Vector2(9, 17)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yiagh"]
-size = Vector2(15, 13.5)
+size = Vector2(15, 15)
 
 [node name="Player" type="CharacterBody2D" groups=["character"]]
 z_index = 1
@@ -578,12 +579,12 @@ script = ExtResource("1_aw6dh")
 
 [node name="Texture" type="Sprite2D" parent="."]
 texture = ExtResource("1_teadb")
+centered = false
 hframes = 6
 vframes = 10
 
 [node name="Collision" type="CollisionShape2D" parent="."]
-visible = false
-position = Vector2(0.5, 15)
+position = Vector2(24.5, 39)
 shape = SubResource("RectangleShape2D_4kynk")
 
 [node name="Animation" type="AnimationPlayer" parent="."]
@@ -598,7 +599,7 @@ collision_mask = 4
 
 [node name="Collision" type="CollisionShape2D" parent="DamageArea"]
 visible = false
-position = Vector2(0, 8.5)
+position = Vector2(24.5, 32.5)
 shape = SubResource("RectangleShape2D_rjbwa")
 
 [node name="AttackArea" type="Area2D" parent="."]
@@ -606,9 +607,17 @@ collision_layer = 0
 collision_mask = 4
 
 [node name="Collision" type="CollisionShape2D" parent="AttackArea"]
-position = Vector2(0, -1)
+visible = false
+position = Vector2(24, 16)
 shape = SubResource("RectangleShape2D_yiagh")
 disabled = true
+
+[node name="Lifebar" parent="." instance=ExtResource("3_1sxup")]
+offset_left = 2.0
+offset_top = 13.0
+offset_right = 186.0
+offset_bottom = 40.0
+scale = Vector2(0.25, 0.25)
 
 [connection signal="animation_finished" from="Animation" to="." method="_on_animation_animation_finished"]
 [connection signal="body_entered" from="DamageArea" to="." method="_on_damage_area_body_entered"]
