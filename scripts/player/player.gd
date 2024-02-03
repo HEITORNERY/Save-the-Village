@@ -46,6 +46,7 @@ func _physics_process(_delta: float) -> void:
 	move_and_slide()
 	_attack()
 	updateAnimation()
+	handleCollision()
 	_idle()
 	_dead()
 	
@@ -77,7 +78,15 @@ func _on_animation_animation_finished(anim_name: String) -> void:
 
 
 func _on_attack_area_body_entered(body) -> void:
-	print(body.name)
 	if body.is_in_group('enemy'):
 		body.queue_free()
-	
+
+# função para lidar com a colisão do outro inimigo, no caso o bluefire
+func handleCollision() -> void:
+	for i in get_slide_collision_count():
+		var collision = get_slide_collision(i)
+		var collider = collision.get_collider()
+
+func _on_damage_area_area_entered(_area) -> void:
+	if _area.name == 'HitBox':
+		print_debug(_area.get_parent().name)

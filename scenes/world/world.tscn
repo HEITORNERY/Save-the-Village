@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://bgxwkylkwpl3m"]
+[gd_scene load_steps=16 format=3 uid="uid://bgxwkylkwpl3m"]
 
 [ext_resource type="PackedScene" uid="uid://cyuok7e3a1lkd" path="res://scenes/player/player.tscn" id="1_qd1gl"]
 [ext_resource type="Texture2D" uid="uid://655kiik8gbg3" path="res://Tilesets/TilesetNature.png" id="2_1a7n7"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://n6ckyqvyvok6" path="res://Animated/Flag/FlagBlack16x16.png" id="4_ysqjq"]
 [ext_resource type="Script" path="res://scripts/player/camera.gd" id="6_6hj30"]
 [ext_resource type="PackedScene" uid="uid://by6u0jxfhdbrq" path="res://scenes/enemy/slime/slime.tscn" id="8_pitog"]
+[ext_resource type="PackedScene" uid="uid://vcvoo6iegkvv" path="res://scenes/enemy/bluefire/blue_fire.tscn" id="9_v0lja"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_t1ta4"]
 texture = ExtResource("2_mirri")
@@ -2470,6 +2471,7 @@ texture = ExtResource("4_ysqjq")
 
 [sub_resource type="TileSet" id="TileSet_rn8mv"]
 physics_layer_0/collision_layer = 1
+physics_layer_0/collision_mask = 6
 sources/0 = SubResource("TileSetAtlasSource_t1ta4")
 sources/1 = SubResource("TileSetAtlasSource_6a8h7")
 sources/2 = SubResource("TileSetAtlasSource_vii03")
@@ -2532,3 +2534,24 @@ position = Vector2(418, 7)
 
 [node name="Slime10" parent="TileMap" instance=ExtResource("8_pitog")]
 position = Vector2(48, 21)
+
+[node name="BlueFire" parent="TileMap" node_paths=PackedStringArray("endPoint") instance=ExtResource("9_v0lja")]
+position = Vector2(192, 229)
+endPoint = NodePath("Marker2D")
+
+[node name="Marker2D" type="Marker2D" parent="TileMap/BlueFire"]
+position = Vector2(0, 67)
+
+[node name="BlueFire2" parent="TileMap" node_paths=PackedStringArray("endPoint") instance=ExtResource("9_v0lja")]
+position = Vector2(322, 210)
+endPoint = NodePath("Marker2D")
+
+[node name="Marker2D" type="Marker2D" parent="TileMap/BlueFire2"]
+position = Vector2(136, 8)
+
+[node name="BlueFire3" parent="TileMap" node_paths=PackedStringArray("endPoint") instance=ExtResource("9_v0lja")]
+position = Vector2(359, 296)
+endPoint = NodePath("Marker2D")
+
+[node name="Marker2D" type="Marker2D" parent="TileMap/BlueFire3"]
+position = Vector2(59, -37)
