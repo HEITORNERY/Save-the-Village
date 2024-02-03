@@ -12,13 +12,16 @@ var endPosition
 @export var limit : float = 0.5
 
 # guardar referência as animações
-@onready var animation = $Animation
+@onready var _animation = $Animation
 
 # guardar referência ao marcador da posição final do inimigo
 @export var endPoint : Marker2D
 
 # dano do inimigo
 @export var damage : float = 1
+
+# vida do inimigo
+var health : int = 8
 
 func _ready() -> void:
 	# Fará o inimigo descer três pixels para baixo
@@ -50,10 +53,15 @@ func update_animation() -> void:
 		direction = '_up'
 	elif velocity.y > 0:
 		direction = '_down'
-	animation.play('walk' + direction)
+	_animation.play('walk' + direction)
 	 
 func _physics_process(_delta: float) -> void:
 	# passar a função de movimentação e a move and slide
 	update_velocity()
 	move_and_slide()
 	update_animation()
+	dead()
+	
+func dead() -> void:
+	if health <= 0:
+		queue_free()

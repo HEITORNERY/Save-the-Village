@@ -12,6 +12,9 @@ class_name  player
 @export var maxHealth : float = 5.0
 @onready var currentHealth : float = 5.0
 
+# dano do player
+var damage : int = 4
+
 func _ready() -> void:
 	$Lifebar.show_percentage = false
 # Criar uma função para lidar com os inputs
@@ -56,6 +59,7 @@ func _physics_process(_delta: float) -> void:
 	_idle()
 	_dead()
 	recovery_health()
+	
 func _on_damage_area_body_entered(body) -> void:
 	if body.is_in_group('enemy'):
 		maxHealth -= body.damage
@@ -85,7 +89,8 @@ func _on_animation_animation_finished(anim_name: String) -> void:
 
 func _on_attack_area_body_entered(body) -> void:
 	if body.is_in_group('enemy'):
-		body.queue_free()
+		body.health -= damage
+		body._animation.play('hit') 
 
 # função para lidar com a colisão do outro inimigo, no caso o bluefire
 func handleCollision() -> void:

@@ -29,6 +29,7 @@ func _physics_process(_delta: float) -> void:
 		# A direction_to normaliza esse valor de vector em -1 a 1
 		velocity = _direction * 40 # velocidade do slime na direção do player
 		move_and_slide() 
+	dead()
 		
 func _animate() -> void:
 	if velocity.x < 0:
@@ -53,3 +54,12 @@ func _on_animation_animation_finished(anim_name: String) -> void:
 	match anim_name:
 		'attack':
 			set_physics_process(true)
+		'hit':
+			set_physics_process(true)
+		'dead': 
+			queue_free()
+
+func dead() -> void:
+	if health <= 0:
+		_animation.play('dead')
+		
