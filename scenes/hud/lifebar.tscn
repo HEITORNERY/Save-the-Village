@@ -1,4 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://cbbdu32iyuwqr"]
+[gd_scene load_steps=10 format=3 uid="uid://cbbdu32iyuwqr"]
+
+[ext_resource type="Texture2D" uid="uid://fuvggmhus20n" path="res://hud/Hearts/PNG/animated/border/heart_animated_1.png" id="1_2pkbw"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dsv1j"]
 bg_color = Color(0.0666667, 0.611765, 0, 1)
@@ -14,6 +16,49 @@ corner_radius_top_right = 100
 corner_radius_bottom_right = 100
 corner_radius_bottom_left = 100
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_q1pdo"]
+atlas = ExtResource("1_2pkbw")
+region = Rect2(0, 0, 17, 17)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6jlyl"]
+atlas = ExtResource("1_2pkbw")
+region = Rect2(17, 0, 17, 17)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2r3ol"]
+atlas = ExtResource("1_2pkbw")
+region = Rect2(34, 0, 17, 17)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kemyx"]
+atlas = ExtResource("1_2pkbw")
+region = Rect2(51, 0, 17, 17)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g0vdu"]
+atlas = ExtResource("1_2pkbw")
+region = Rect2(68, 0, 17, 17)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_nkqgl"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q1pdo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6jlyl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2r3ol")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kemyx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g0vdu")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
 [node name="Lifebar" type="ProgressBar"]
 offset_right = 184.0
 offset_bottom = 27.0
@@ -22,3 +67,9 @@ theme_override_styles/fill = SubResource("StyleBoxFlat_62cap")
 max_value = 5.0
 step = 1.0
 value = 5.0
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-14, 14)
+scale = Vector2(1.5, 1.5)
+sprite_frames = SubResource("SpriteFrames_nkqgl")
+autoplay = "default"
