@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://c41t4wgx7ht48"]
+[gd_scene load_steps=17 format=3 uid="uid://c41t4wgx7ht48"]
 
 [ext_resource type="Texture2D" uid="uid://cx5maiu507ntu" path="res://terrain/grass.png" id="1_y5kf1"]
 [ext_resource type="Texture2D" uid="uid://cp26k8eajnkuj" path="res://terrain/plains.png" id="2_obhfb"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://bo6ujpxa1k604" path="res://terrain/wooden.png" id="5_ucovn"]
 [ext_resource type="PackedScene" uid="uid://duif1c8ebrqx4" path="res://scenes/world/door_component.tscn" id="8_kup8a"]
 [ext_resource type="PackedScene" uid="uid://dr5srlyarynxn" path="res://scenes/enemy/cyclope/Cyclope.tscn" id="9_l2o71"]
+[ext_resource type="PackedScene" uid="uid://dywg4bndn7k6c" path="res://scenes/enemy/axalot/Axalot.tscn" id="10_i0d42"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_idvn3"]
 texture = ExtResource("1_y5kf1")
@@ -503,3 +504,52 @@ endPoint = NodePath("Marker2D")
 
 [node name="Marker2D" type="Marker2D" parent="TileMap/Cyclope"]
 position = Vector2(129, 6)
+
+[node name="Cyclope2" parent="TileMap" node_paths=PackedStringArray("endPoint") instance=ExtResource("9_l2o71")]
+position = Vector2(31, 268)
+endPoint = NodePath("../Cyclope/Marker2D")
+
+[node name="Marker2D" type="Marker2D" parent="TileMap/Cyclope2"]
+position = Vector2(129, 6)
+
+[node name="Cyclope3" parent="TileMap" node_paths=PackedStringArray("endPoint") instance=ExtResource("9_l2o71")]
+position = Vector2(401, 25)
+endPoint = NodePath("../Cyclope/Marker2D")
+
+[node name="Marker2D" type="Marker2D" parent="TileMap/Cyclope3"]
+position = Vector2(129, 6)
+
+[node name="Cyclope4" parent="TileMap" node_paths=PackedStringArray("endPoint") instance=ExtResource("9_l2o71")]
+position = Vector2(605, 270)
+endPoint = NodePath("../Cyclope/Marker2D")
+
+[node name="Marker2D" type="Marker2D" parent="TileMap/Cyclope4"]
+position = Vector2(74, 7)
+
+[node name="Axalot" parent="TileMap" node_paths=PackedStringArray("endPoint") instance=ExtResource("10_i0d42")]
+position = Vector2(169, 160)
+endPoint = NodePath("Marker2D")
+
+[node name="Marker2D" type="Marker2D" parent="TileMap/Axalot"]
+position = Vector2(116, -31)
+
+[node name="Axalot2" parent="TileMap" node_paths=PackedStringArray("endPoint") instance=ExtResource("10_i0d42")]
+position = Vector2(393, 267)
+endPoint = NodePath("../Axalot/Marker2D")
+
+[node name="Marker2D" type="Marker2D" parent="TileMap/Axalot2"]
+position = Vector2(131, 2)
+
+[node name="Axalot3" parent="TileMap" node_paths=PackedStringArray("endPoint") instance=ExtResource("10_i0d42")]
+position = Vector2(273, 266)
+endPoint = NodePath("../Axalot/Marker2D")
+
+[node name="Marker2D" type="Marker2D" parent="TileMap/Axalot3"]
+position = Vector2(116, -31)
+
+[node name="Axalot4" parent="TileMap" node_paths=PackedStringArray("endPoint") instance=ExtResource("10_i0d42")]
+position = Vector2(252, 27)
+endPoint = NodePath("../Axalot/Marker2D")
+
+[node name="Marker2D" type="Marker2D" parent="TileMap/Axalot4"]
+position = Vector2(59, 5)
