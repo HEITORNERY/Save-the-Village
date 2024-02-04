@@ -1,5 +1,6 @@
-[gd_scene load_steps=18 format=3 uid="uid://c41t4wgx7ht48"]
+[gd_scene load_steps=20 format=3 uid="uid://c41t4wgx7ht48"]
 
+[ext_resource type="Script" path="res://scripts/world/initial_scene.gd" id="1_po1xw"]
 [ext_resource type="Texture2D" uid="uid://cx5maiu507ntu" path="res://terrain/grass.png" id="1_y5kf1"]
 [ext_resource type="Texture2D" uid="uid://cp26k8eajnkuj" path="res://terrain/plains.png" id="2_obhfb"]
 [ext_resource type="Texture2D" uid="uid://bwvhsc4i0lli" path="res://terrain/fences.png" id="3_tr53y"]
@@ -11,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://dr5srlyarynxn" path="res://scenes/enemy/cyclope/Cyclope.tscn" id="9_l2o71"]
 [ext_resource type="PackedScene" uid="uid://dywg4bndn7k6c" path="res://scenes/enemy/axalot/Axalot.tscn" id="10_i0d42"]
 [ext_resource type="PackedScene" uid="uid://bryngf105hpvg" path="res://scenes/world/cave.tscn" id="11_pxryp"]
+[ext_resource type="PackedScene" uid="uid://dlkso31v300cy" path="res://scenes/npc/guerreirovenancio.tscn" id="13_unti6"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_idvn3"]
 texture = ExtResource("1_y5kf1")
@@ -471,7 +473,9 @@ sources/3 = SubResource("TileSetAtlasSource_mr7hn")
 sources/4 = SubResource("TileSetAtlasSource_1rtkd")
 sources/5 = SubResource("TileSetAtlasSource_rga2r")
 
-[node name="InitialScene" type="Node2D"]
+[node name="InitialScene" type="Node2D" node_paths=PackedStringArray("hud")]
+script = ExtResource("1_po1xw")
+hud = NodePath("HUD")
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_xp2x4")
@@ -557,3 +561,12 @@ position = Vector2(59, 5)
 
 [node name="Cave" parent="TileMap" instance=ExtResource("11_pxryp")]
 position = Vector2(991, 267)
+
+[node name="GuerreiroVenâncio" parent="TileMap" node_paths=PackedStringArray("endPoint") instance=ExtResource("13_unti6")]
+position = Vector2(782, 240)
+endPoint = NodePath("Marker2D")
+
+[node name="Marker2D" type="Marker2D" parent="TileMap/GuerreiroVenâncio"]
+position = Vector2(96, 3)
+
+[node name="HUD" type="CanvasLayer" parent="."]
