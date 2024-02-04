@@ -507,7 +507,7 @@ endPoint = NodePath("Marker2D")
 position = Vector2(129, 6)
 
 [node name="Cyclope2" parent="TileMap" node_paths=PackedStringArray("endPoint") instance=ExtResource("9_l2o71")]
-position = Vector2(31, 268)
+position = Vector2(39, 126)
 endPoint = NodePath("../Cyclope/Marker2D")
 
 [node name="Marker2D" type="Marker2D" parent="TileMap/Cyclope2"]

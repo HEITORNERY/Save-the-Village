@@ -189,7 +189,7 @@ _data = {
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hbvc7"]
-size = Vector2(16, 16)
+size = Vector2(12, 14)
 
 [node name="Spirit" type="CharacterBody2D" groups=["enemy"]]
 collision_layer = 4
@@ -202,10 +202,9 @@ libraries = {
 
 [node name="Texture" type="Sprite2D" parent="."]
 texture = ExtResource("2_02pa2")
-centered = false
 hframes = 4
 vframes = 4
 
 [node name="Collision" type="CollisionShape2D" parent="."]
-position = Vector2(8, 8)
+position = Vector2(0, -1)
 shape = SubResource("RectangleShape2D_hbvc7")

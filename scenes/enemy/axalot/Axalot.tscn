@@ -202,10 +202,8 @@ libraries = {
 
 [node name="Texture" type="Sprite2D" parent="."]
 texture = ExtResource("2_jb7qg")
-centered = false
 hframes = 4
 vframes = 4
 
 [node name="Collision" type="CollisionShape2D" parent="."]
-position = Vector2(8, 8)
 shape = SubResource("RectangleShape2D_hbvc7")

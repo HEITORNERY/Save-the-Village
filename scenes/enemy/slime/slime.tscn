@@ -189,12 +189,11 @@ _texture = NodePath("Texture")
 
 [node name="Texture" type="Sprite2D" parent="."]
 texture = ExtResource("1_ffdpw")
-centered = false
 hframes = 7
 vframes = 5
 
 [node name="Collision" type="CollisionShape2D" parent="."]
-position = Vector2(16, 17.5)
+position = Vector2(0, 2)
 shape = SubResource("RectangleShape2D_remnf")
 
 [node name="DetectionArea" type="Area2D" parent="."]
@@ -202,8 +201,6 @@ collision_layer = 0
 collision_mask = 2
 
 [node name="Collision" type="CollisionShape2D" parent="DetectionArea"]
-visible = false
-position = Vector2(17, 19)
 shape = SubResource("CircleShape2D_0v6uw")
 
 [node name="Animation" type="AnimationPlayer" parent="."]

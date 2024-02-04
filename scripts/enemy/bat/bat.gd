@@ -1,8 +1,5 @@
 extends CharacterBody2D
 
-# Atribuindo um nome para esse script
-class_name Slime
-
 # Variável para guardar referência a posição do personagem
 var _player_ref = null
 
@@ -10,11 +7,11 @@ var _player_ref = null
 @export var _animation : AnimationPlayer 
 @export var _texture : Sprite2D
 
-# dano do slime
+# dano 
 var damage = 1
 
-# Criar a vida do slime
-var health : int = 4
+# Criar a vida 
+var health : int = 12
 
 func _physics_process(_delta: float) -> void:
 	_animate() # Função para executar as animações
@@ -38,13 +35,12 @@ func _animate() -> void:
 	elif velocity.x > 0:
 		_texture.flip_h = false
 		_animation.play('walk')
-	else:
+	elif velocity.x == 0 or velocity.y == 0:
 		_animation.play('idle')
 
 func _on_detection_area_body_entered(body) -> void:
 	if body.is_in_group('character'):
 		_player_ref = body # A referência ao player foi criada
-		_animation.play('attack')
 		
 func _on_detection_area_body_exited(body) -> void:
 	if body.is_in_group('character'):
@@ -53,14 +49,11 @@ func _on_detection_area_body_exited(body) -> void:
 
 func _on_animation_animation_finished(anim_name: String) -> void:
 	match anim_name:
-		'attack':
-			set_physics_process(true)
-		'hit':
-			set_physics_process(true)
 		'dead': 
 			queue_free()
 
 func dead() -> void:
 	if health <= 0:
 		_animation.play('dead')
-		
+
+

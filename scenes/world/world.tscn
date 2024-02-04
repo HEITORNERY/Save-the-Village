@@ -2533,7 +2533,7 @@ position = Vector2(555, 21)
 position = Vector2(537, 102)
 
 [node name="Slime9" parent="TileMap" instance=ExtResource("8_pitog")]
-position = Vector2(418, 7)
+position = Vector2(422, 23)
 
 [node name="Slime10" parent="TileMap" instance=ExtResource("8_pitog")]
 position = Vector2(48, 21)
