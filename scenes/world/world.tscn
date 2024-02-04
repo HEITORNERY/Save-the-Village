@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://bgxwkylkwpl3m"]
+[gd_scene load_steps=19 format=3 uid="uid://bgxwkylkwpl3m"]
 
 [ext_resource type="PackedScene" uid="uid://cyuok7e3a1lkd" path="res://scenes/player/player.tscn" id="1_qd1gl"]
 [ext_resource type="Texture2D" uid="uid://655kiik8gbg3" path="res://Tilesets/TilesetNature.png" id="2_1a7n7"]
@@ -9,6 +9,9 @@
 [ext_resource type="Script" path="res://scripts/player/camera.gd" id="6_6hj30"]
 [ext_resource type="PackedScene" uid="uid://by6u0jxfhdbrq" path="res://scenes/enemy/slime/slime.tscn" id="8_pitog"]
 [ext_resource type="PackedScene" uid="uid://vcvoo6iegkvv" path="res://scenes/enemy/bluefire/blue_fire.tscn" id="9_v0lja"]
+[ext_resource type="PackedScene" uid="uid://bryngf105hpvg" path="res://scenes/world/cave.tscn" id="10_ckk4w"]
+[ext_resource type="Script" path="res://scripts/world/cave4.gd" id="11_m6t7t"]
+[ext_resource type="Script" path="res://scripts/world/cave5.gd" id="12_4wf2o"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_t1ta4"]
 texture = ExtResource("2_mirri")
@@ -2555,3 +2558,46 @@ endPoint = NodePath("Marker2D")
 
 [node name="Marker2D" type="Marker2D" parent="TileMap/BlueFire3"]
 position = Vector2(59, -37)
+
+[node name="BlueFire4" parent="TileMap" node_paths=PackedStringArray("endPoint") instance=ExtResource("9_v0lja")]
+position = Vector2(605, 346)
+endPoint = NodePath("../BlueFire3/Marker2D")
+
+[node name="Marker2D" type="Marker2D" parent="TileMap/BlueFire4"]
+position = Vector2(59, -37)
+
+[node name="BlueFire5" parent="TileMap" node_paths=PackedStringArray("endPoint") instance=ExtResource("9_v0lja")]
+position = Vector2(512, 316)
+endPoint = NodePath("../BlueFire3/Marker2D")
+
+[node name="Marker2D" type="Marker2D" parent="TileMap/BlueFire5"]
+position = Vector2(59, -37)
+
+[node name="BlueFire6" parent="TileMap" node_paths=PackedStringArray("endPoint") instance=ExtResource("9_v0lja")]
+position = Vector2(507, 429)
+endPoint = NodePath("../BlueFire3/Marker2D")
+
+[node name="Marker2D" type="Marker2D" parent="TileMap/BlueFire6"]
+position = Vector2(59, -37)
+
+[node name="BlueFire7" parent="TileMap" node_paths=PackedStringArray("endPoint") instance=ExtResource("9_v0lja")]
+position = Vector2(324, 416)
+endPoint = NodePath("../BlueFire3/Marker2D")
+
+[node name="Marker2D" type="Marker2D" parent="TileMap/BlueFire7"]
+position = Vector2(59, -37)
+
+[node name="BlueFire8" parent="TileMap" node_paths=PackedStringArray("endPoint") instance=ExtResource("9_v0lja")]
+position = Vector2(163, 407)
+endPoint = NodePath("../BlueFire3/Marker2D")
+
+[node name="Marker2D" type="Marker2D" parent="TileMap/BlueFire8"]
+position = Vector2(59, -37)
+
+[node name="Cave4" parent="TileMap" instance=ExtResource("10_ckk4w")]
+position = Vector2(29, 6)
+script = ExtResource("11_m6t7t")
+
+[node name="Cave5" parent="TileMap" instance=ExtResource("10_ckk4w")]
+position = Vector2(688, 427)
+script = ExtResource("12_4wf2o")
