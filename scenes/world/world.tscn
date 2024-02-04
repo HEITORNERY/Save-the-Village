@@ -2423,12 +2423,12 @@ texture = ExtResource("2_1a7n7")
 4:2/0 = 0
 4:2/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 4:2/0/physics_layer_0/angular_velocity = 0.0
-4:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-28, 20.5, -14.5, 23.5, -3, 23.5, 11, 22.5, 27, 22.5, 26.5, 18, 14.5, 17, 3, 16.5, -3, 17, -13, 17, -21.5, 16.5, -26.5, 15.5)
+4:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-28.5, 28, -20, 28.5, -7.5, 28.5, 10.5, 27, 28, 27.5, 26.5, 18, 14.5, 17, 3, 16.5, -3, 17, -13, 17, -21.5, 16.5, -26.5, 15.5)
 18:0/size_in_atlas = Vector2i(2, 2)
 18:0/0 = 0
 18:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 18:0/0/physics_layer_0/angular_velocity = 0.0
-18:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-12.0208, 9.19239, 11.3137, 8.48528, 11.3137, 16.617, -10.9602, 16.617)
+18:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-12.0208, 9.19239, 11.3137, 8.48528, 11.3137, 19.0919, -10.9602, 18.7383)
 0:5/size_in_atlas = Vector2i(4, 3)
 0:5/0 = 0
 0:5/0/physics_layer_0/linear_velocity = Vector2(0, 0)
@@ -2467,7 +2467,7 @@ texture = ExtResource("4_ysqjq")
 0:0/0 = 0
 0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 0:0/0/physics_layer_0/angular_velocity = 0.0
-0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8.48528, 16.2635, -8, 8)
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 
 [sub_resource type="TileSet" id="TileSet_rn8mv"]
 physics_layer_0/collision_layer = 1

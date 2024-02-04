@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://cbbdu32iyuwqr" path="res://scenes/hud/lifebar.tscn" id="3_1sxup"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4kynk"]
-size = Vector2(9, 17)
+size = Vector2(9, 15)
 
 [sub_resource type="Animation" id="Animation_jon3t"]
 length = 0.6
@@ -584,7 +584,7 @@ hframes = 6
 vframes = 10
 
 [node name="Collision" type="CollisionShape2D" parent="."]
-position = Vector2(24.5, 32.5)
+position = Vector2(24.5, 33.5)
 shape = SubResource("RectangleShape2D_4kynk")
 
 [node name="Animation" type="AnimationPlayer" parent="."]

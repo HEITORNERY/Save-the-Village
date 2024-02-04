@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://k2evsqydd0pd"
-path="res://.godot/imported/bruxa.png-e0d0018209211c4a8a921e8baaf5866d.ctex"
+uid="uid://bvnadr2mbjvx5"
+path="res://.godot/imported/bruxalaranjaattack.png-fa9a813164834d5faac222d3f6a442b8.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets3/bruxa.png"
-dest_files=["res://.godot/imported/bruxa.png-e0d0018209211c4a8a921e8baaf5866d.ctex"]
+source_file="res://assets3/bruxalaranjaattack.png"
+dest_files=["res://.godot/imported/bruxalaranjaattack.png-fa9a813164834d5faac222d3f6a442b8.ctex"]
 
 [params]
 
