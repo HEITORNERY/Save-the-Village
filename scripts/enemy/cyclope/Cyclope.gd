@@ -1,7 +1,5 @@
 extends CharacterBody2D
 
-# o fogo azul vai mover-se para baixo em três pixels e depois vai retornar a posição inicial
-# precisa-se de 3 variáveis, uma para a posição inicial e uma para a posição final
 var startPosition
 var endPosition
 
@@ -65,5 +63,6 @@ func _physics_process(_delta: float) -> void:
 func dead() -> void:
 	if health <= 0:
 		_animation.play("dead")
-		await get_tree().create_timer(1).timeout
+		await  get_tree().create_timer(1).timeout
 		queue_free()
+

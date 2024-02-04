@@ -23,6 +23,18 @@ tracks/0/keys = {
 "update": 1,
 "values": [0]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Texture:flip_h")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="Animation" id="Animation_fmf1c"]
 resource_name = "attack"
@@ -52,6 +64,18 @@ tracks/1/keys = {
 "args": [false],
 "method": &"set_physics_process"
 }]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Texture:flip_h")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
 }
 
 [sub_resource type="Animation" id="Animation_h2j04"]
@@ -170,7 +194,6 @@ hframes = 7
 vframes = 5
 
 [node name="Collision" type="CollisionShape2D" parent="."]
-visible = false
 position = Vector2(16, 17.5)
 shape = SubResource("RectangleShape2D_remnf")
 

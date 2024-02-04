@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://c41t4wgx7ht48"]
+[gd_scene load_steps=16 format=3 uid="uid://c41t4wgx7ht48"]
 
 [ext_resource type="Texture2D" uid="uid://cx5maiu507ntu" path="res://terrain/grass.png" id="1_y5kf1"]
 [ext_resource type="Texture2D" uid="uid://cp26k8eajnkuj" path="res://terrain/plains.png" id="2_obhfb"]
@@ -8,6 +8,7 @@
 [ext_resource type="Script" path="res://scripts/player/camera.gd" id="5_pysm8"]
 [ext_resource type="Texture2D" uid="uid://bo6ujpxa1k604" path="res://terrain/wooden.png" id="5_ucovn"]
 [ext_resource type="PackedScene" uid="uid://duif1c8ebrqx4" path="res://scenes/world/door_component.tscn" id="8_kup8a"]
+[ext_resource type="PackedScene" uid="uid://dr5srlyarynxn" path="res://scenes/enemy/cyclope/Cyclope.tscn" id="9_l2o71"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_idvn3"]
 texture = ExtResource("1_y5kf1")
@@ -481,17 +482,24 @@ layer_2/name = "wall"
 layer_2/z_index = 1
 layer_2/tile_data = PackedInt32Array(524349, 4, 3, 327734, 65540, 0, 327735, 65540, 0, 327736, 65540, 0, 327737, 65540, 0, 327738, 65540, 0, 327739, 65540, 0, 327740, 65540, 0, 327741, 65540, 0, 327742, 196612, 0, 524343, 4, 3, 327733, 65540, 0, 393269, 65540, 1, 458805, 65540, 1, 327743, 196612, 0, 393279, 196612, 1, 458815, 196612, 1, 524341, 4, 1, 589877, 4, 2, 524351, 4, 1, 589887, 4, 2)
 
-[node name="Player" parent="." instance=ExtResource("4_ae5k1")]
+[node name="DoorComponent" parent="TileMap" instance=ExtResource("8_kup8a")]
+position = Vector2(920, 127)
+
+[node name="Player" parent="TileMap" instance=ExtResource("4_ae5k1")]
 position = Vector2(911, 157)
 
-[node name="Camera2D" type="Camera2D" parent="Player" node_paths=PackedStringArray("tilemap")]
+[node name="Camera2D" type="Camera2D" parent="TileMap/Player" node_paths=PackedStringArray("tilemap")]
 limit_left = 0
 limit_top = 0
 limit_right = 480
 limit_bottom = 288
 position_smoothing_enabled = true
 script = ExtResource("5_pysm8")
-tilemap = NodePath("../../TileMap")
+tilemap = NodePath("../..")
 
-[node name="DoorComponent" parent="." instance=ExtResource("8_kup8a")]
-position = Vector2(920, 127)
+[node name="Cyclope" parent="TileMap" node_paths=PackedStringArray("endPoint") instance=ExtResource("9_l2o71")]
+position = Vector2(51, 47)
+endPoint = NodePath("Marker2D")
+
+[node name="Marker2D" type="Marker2D" parent="TileMap/Cyclope"]
+position = Vector2(129, 6)
