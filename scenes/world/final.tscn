@@ -1,10 +1,12 @@
-[gd_scene load_steps=8 format=3 uid="uid://cvnae5ok6adw7"]
+[gd_scene load_steps=10 format=3 uid="uid://cvnae5ok6adw7"]
 
+[ext_resource type="Script" path="res://scripts/world/final.gd" id="1_7cmly"]
 [ext_resource type="Texture2D" uid="uid://c4bnbtkpvs3cx" path="res://Tilesets/TilesetFloorB.png" id="1_qukuy"]
 [ext_resource type="PackedScene" uid="uid://cyuok7e3a1lkd" path="res://scenes/player/player.tscn" id="2_iq5e2"]
 [ext_resource type="Script" path="res://scripts/player/camera.gd" id="3_aj8ac"]
 [ext_resource type="PackedScene" uid="uid://bryngf105hpvg" path="res://scenes/world/cave.tscn" id="3_oovdk"]
 [ext_resource type="Script" path="res://scripts/world/cave6.gd" id="4_yel53"]
+[ext_resource type="PackedScene" uid="uid://bu474gftt8ytn" path="res://scenes/npc/cavaleiro/cavaleiroheitor.tscn" id="6_codbr"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1wpu3"]
 texture = ExtResource("1_qukuy")
@@ -243,7 +245,9 @@ terrain_set_0/terrain_1/name = "fffmountain"
 terrain_set_0/terrain_1/color = Color(0.5, 0.4375, 0.25, 1)
 sources/0 = SubResource("TileSetAtlasSource_1wpu3")
 
-[node name="Final" type="Node2D"]
+[node name="Final" type="Node2D" node_paths=PackedStringArray("hud")]
+script = ExtResource("1_7cmly")
+hud = NodePath("HUD")
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_pwwpr")
@@ -264,3 +268,12 @@ tilemap = NodePath("../..")
 [node name="Cave6" parent="TileMap" instance=ExtResource("3_oovdk")]
 position = Vector2(5, 0)
 script = ExtResource("4_yel53")
+
+[node name="CavaleiroHeitor" parent="TileMap" node_paths=PackedStringArray("endPoint") instance=ExtResource("6_codbr")]
+position = Vector2(39, 80)
+endPoint = NodePath("Marker2D")
+
+[node name="Marker2D" type="Marker2D" parent="TileMap/CavaleiroHeitor"]
+position = Vector2(43, 4)
+
+[node name="HUD" type="CanvasLayer" parent="."]
