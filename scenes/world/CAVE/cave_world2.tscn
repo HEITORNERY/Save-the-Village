@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://d1dbefiktajfr"]
+[gd_scene load_steps=12 format=3 uid="uid://d1dbefiktajfr"]
 
 [ext_resource type="Texture2D" uid="uid://3ss735shb36u" path="res://Tilesets/TilesetHole.png" id="1_dqhyx"]
 [ext_resource type="Texture2D" uid="uid://ku2wkwsre66c" path="res://Tilesets/TilesetDungeon.png" id="2_ahk63"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://bryngf105hpvg" path="res://scenes/world/cave.tscn" id="5_vq0oj"]
 [ext_resource type="Script" path="res://scripts/world/cave7.gd" id="6_k1evg"]
 [ext_resource type="Script" path="res://scripts/world/cave8.gd" id="7_b438t"]
+[ext_resource type="PackedScene" uid="uid://c13hdluh83kvj" path="res://scenes/enemy/skeleton/skeleton.tscn" id="8_0o24o"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_k1jlo"]
 texture = ExtResource("1_dqhyx")
@@ -385,3 +386,87 @@ script = ExtResource("6_k1evg")
 [node name="Cave8" parent="TileMap" instance=ExtResource("5_vq0oj")]
 position = Vector2(621, 314)
 script = ExtResource("7_b438t")
+
+[node name="Skeleton" parent="TileMap" node_paths=PackedStringArray("endPoint") instance=ExtResource("8_0o24o")]
+position = Vector2(160, 86)
+endPoint = NodePath("Marker2D")
+
+[node name="Marker2D" type="Marker2D" parent="TileMap/Skeleton"]
+position = Vector2(0, -52)
+
+[node name="Skeleton2" parent="TileMap" node_paths=PackedStringArray("endPoint") instance=ExtResource("8_0o24o")]
+position = Vector2(516, 314)
+endPoint = NodePath("../Skeleton/Marker2D")
+
+[node name="Marker2D" type="Marker2D" parent="TileMap/Skeleton2"]
+position = Vector2(0, -52)
+
+[node name="Skeleton3" parent="TileMap" node_paths=PackedStringArray("endPoint") instance=ExtResource("8_0o24o")]
+position = Vector2(562, 112)
+endPoint = NodePath("../Skeleton/Marker2D")
+
+[node name="Marker2D" type="Marker2D" parent="TileMap/Skeleton3"]
+position = Vector2(0, -52)
+
+[node name="Skeleton4" parent="TileMap" node_paths=PackedStringArray("endPoint") instance=ExtResource("8_0o24o")]
+position = Vector2(473, 113)
+endPoint = NodePath("../Skeleton/Marker2D")
+
+[node name="Marker2D" type="Marker2D" parent="TileMap/Skeleton4"]
+position = Vector2(0, -52)
+
+[node name="Skeleton5" parent="TileMap" node_paths=PackedStringArray("endPoint") instance=ExtResource("8_0o24o")]
+position = Vector2(393, 284)
+endPoint = NodePath("../Skeleton/Marker2D")
+
+[node name="Marker2D" type="Marker2D" parent="TileMap/Skeleton5"]
+position = Vector2(0, -52)
+
+[node name="Skeleton6" parent="TileMap" node_paths=PackedStringArray("endPoint") instance=ExtResource("8_0o24o")]
+position = Vector2(354, 137)
+endPoint = NodePath("../Skeleton/Marker2D")
+
+[node name="Marker2D" type="Marker2D" parent="TileMap/Skeleton6"]
+position = Vector2(0, -52)
+
+[node name="Skeleton7" parent="TileMap" node_paths=PackedStringArray("endPoint") instance=ExtResource("8_0o24o")]
+position = Vector2(243, 322)
+endPoint = NodePath("../Skeleton/Marker2D")
+
+[node name="Marker2D" type="Marker2D" parent="TileMap/Skeleton7"]
+position = Vector2(0, -52)
+
+[node name="Skeleton8" parent="TileMap" node_paths=PackedStringArray("endPoint") instance=ExtResource("8_0o24o")]
+position = Vector2(136, 298)
+endPoint = NodePath("../Skeleton/Marker2D")
+
+[node name="Marker2D" type="Marker2D" parent="TileMap/Skeleton8"]
+position = Vector2(0, -52)
+
+[node name="Skeleton9" parent="TileMap" node_paths=PackedStringArray("endPoint") instance=ExtResource("8_0o24o")]
+position = Vector2(285, 162)
+endPoint = NodePath("../Skeleton/Marker2D")
+
+[node name="Marker2D" type="Marker2D" parent="TileMap/Skeleton9"]
+position = Vector2(0, -52)
+
+[node name="Skeleton10" parent="TileMap" node_paths=PackedStringArray("endPoint") instance=ExtResource("8_0o24o")]
+position = Vector2(103, 170)
+endPoint = NodePath("../Skeleton/Marker2D")
+
+[node name="Marker2D" type="Marker2D" parent="TileMap/Skeleton10"]
+position = Vector2(0, -52)
+
+[node name="Skeleton11" parent="TileMap" node_paths=PackedStringArray("endPoint") instance=ExtResource("8_0o24o")]
+position = Vector2(612, 310)
+endPoint = NodePath("../Skeleton/Marker2D")
+
+[node name="Marker2D" type="Marker2D" parent="TileMap/Skeleton11"]
+position = Vector2(0, -52)
+
+[node name="Skeleton12" parent="TileMap" node_paths=PackedStringArray("endPoint") instance=ExtResource("8_0o24o")]
+position = Vector2(638, 186)
+endPoint = NodePath("../Skeleton/Marker2D")
+
+[node name="Marker2D" type="Marker2D" parent="TileMap/Skeleton12"]
+position = Vector2(0, -52)

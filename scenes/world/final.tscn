@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://cvnae5ok6adw7"]
+[gd_scene load_steps=11 format=3 uid="uid://cvnae5ok6adw7"]
 
 [ext_resource type="Script" path="res://scripts/world/final.gd" id="1_7cmly"]
 [ext_resource type="Texture2D" uid="uid://c4bnbtkpvs3cx" path="res://Tilesets/TilesetFloorB.png" id="1_qukuy"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://bryngf105hpvg" path="res://scenes/world/cave.tscn" id="3_oovdk"]
 [ext_resource type="Script" path="res://scripts/world/cave6.gd" id="4_yel53"]
 [ext_resource type="PackedScene" uid="uid://bu474gftt8ytn" path="res://scenes/npc/cavaleiro/cavaleiroheitor.tscn" id="6_codbr"]
+[ext_resource type="PackedScene" uid="uid://bvv51nr28igrt" path="res://scenes/enemy/wolf/wolf.tscn" id="8_6yxpy"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1wpu3"]
 texture = ExtResource("1_qukuy")
@@ -275,5 +276,29 @@ endPoint = NodePath("Marker2D")
 
 [node name="Marker2D" type="Marker2D" parent="TileMap/CavaleiroHeitor"]
 position = Vector2(43, 4)
+
+[node name="Wolf" parent="TileMap" instance=ExtResource("8_6yxpy")]
+position = Vector2(222, 220)
+
+[node name="Wolf2" parent="TileMap" instance=ExtResource("8_6yxpy")]
+position = Vector2(222, 310)
+
+[node name="Wolf3" parent="TileMap" instance=ExtResource("8_6yxpy")]
+position = Vector2(326, 222)
+
+[node name="Wolf4" parent="TileMap" instance=ExtResource("8_6yxpy")]
+position = Vector2(336, 318)
+
+[node name="Wolf5" parent="TileMap" instance=ExtResource("8_6yxpy")]
+position = Vector2(439, 221)
+
+[node name="Wolf6" parent="TileMap" instance=ExtResource("8_6yxpy")]
+position = Vector2(454, 318)
+
+[node name="Wolf7" parent="TileMap" instance=ExtResource("8_6yxpy")]
+position = Vector2(544, 218)
+
+[node name="Wolf8" parent="TileMap" instance=ExtResource("8_6yxpy")]
+position = Vector2(551, 321)
 
 [node name="HUD" type="CanvasLayer" parent="."]
