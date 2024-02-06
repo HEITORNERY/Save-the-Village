@@ -40,19 +40,22 @@ size_flags_horizontal = 0
 layout_mode = 2
 
 [node name="Start" type="TouchScreenButton" parent="MarginContainer/HBoxContainer/VBoxContainer"]
-position = Vector2(71, 130)
+position = Vector2(2.00001, 49)
+scale = Vector2(0.46, 0.313726)
 texture_normal = ExtResource("1_d60qf")
 texture_pressed = ExtResource("2_367wk")
 action = "ui_accept"
 
 [node name="Credits" type="TouchScreenButton" parent="MarginContainer/HBoxContainer/VBoxContainer"]
-position = Vector2(140, 130)
+position = Vector2(3, 71)
+scale = Vector2(0.42, 0.45098)
 texture_normal = ExtResource("3_kqm05")
 texture_pressed = ExtResource("4_kbwjb")
 action = "ui_select"
 
 [node name="Quit" type="TouchScreenButton" parent="MarginContainer/HBoxContainer/VBoxContainer"]
-position = Vector2(215, 130)
+position = Vector2(3, 98)
+scale = Vector2(0.42, 0.42)
 texture_normal = ExtResource("5_af0op")
 texture_pressed = ExtResource("6_y0yg8")
 action = "end_screen"

@@ -575,6 +575,48 @@ position = Vector2(96, 3)
 
 [node name="Controls" parent="." instance=ExtResource("14_1d72r")]
 
+[node name="ui_left" parent="Controls" index="0"]
+position = Vector2(16, 168)
+scale = Vector2(0.5, 0.25)
+
+[node name="ui_right" parent="Controls" index="1"]
+position = Vector2(64, 168)
+scale = Vector2(0.5, 0.25)
+
+[node name="ui_down" parent="Controls" index="2"]
+position = Vector2(40, 168)
+scale = Vector2(0.5, 0.25)
+
+[node name="ui_up" parent="Controls" index="3"]
+position = Vector2(40, 152)
+scale = Vector2(0.5, 0.25)
+
+[node name="ui_chat" parent="Controls" index="4"]
+position = Vector2(104, 160)
+scale = Vector2(0.592592, 0.365385)
+
+[node name="ui_attack_up" parent="Controls" index="5"]
+position = Vector2(256, 152)
+scale = Vector2(0.5, 0.25)
+
+[node name="ui_attack_down" parent="Controls" index="6"]
+position = Vector2(256, 168)
+scale = Vector2(0.5, 0.25)
+
+[node name="ui_attack_right" parent="Controls" index="7"]
+position = Vector2(280, 168)
+scale = Vector2(0.500002, 0.25)
+
+[node name="ui_attack_left" parent="Controls" index="8"]
+position = Vector2(232, 168)
+scale = Vector2(0.499999, 0.25)
+
+[node name="ui_pass_chat" parent="Controls" index="9"]
+position = Vector2(160, 160)
+scale = Vector2(0.5, 0.25)
+
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("15_ai5g6")
 volume_db = -20.0
+
+[editable path="Controls"]

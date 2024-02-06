@@ -613,9 +613,9 @@ disabled = true
 
 [node name="Lifebar" parent="." instance=ExtResource("3_1sxup")]
 offset_left = -22.0
-offset_top = -9.0
+offset_top = -7.0
 offset_right = 162.0
-offset_bottom = 18.0
+offset_bottom = 16.0
 scale = Vector2(0.25, 0.25)
 
 [connection signal="animation_finished" from="Animation" to="." method="_on_animation_animation_finished"]

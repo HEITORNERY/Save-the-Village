@@ -2504,6 +2504,12 @@ layer_2/tile_data = PackedInt32Array(327703, 1048577, 0, 458758, 1179649, 0, 131
 [node name="Player" parent="TileMap" instance=ExtResource("1_qd1gl")]
 position = Vector2(133, 52)
 
+[node name="Lifebar" parent="TileMap/Player" index="5"]
+offset_left = -20.0
+offset_top = -9.0
+offset_right = 144.0
+offset_bottom = 14.0
+
 [node name="Camera2D" type="Camera2D" parent="TileMap/Player" node_paths=PackedStringArray("tilemap")]
 position = Vector2(27, 54)
 limit_left = 0
@@ -2611,3 +2617,5 @@ script = ExtResource("12_4wf2o")
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("15_cscov")
 volume_db = -20.0
+
+[editable path="TileMap/Player"]

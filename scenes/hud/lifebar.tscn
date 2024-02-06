@@ -61,7 +61,7 @@ animations = [{
 
 [node name="Lifebar" type="ProgressBar"]
 offset_right = 184.0
-offset_bottom = 27.0
+offset_bottom = 23.0
 theme_override_styles/background = SubResource("StyleBoxFlat_dsv1j")
 theme_override_styles/fill = SubResource("StyleBoxFlat_62cap")
 max_value = 10.0
