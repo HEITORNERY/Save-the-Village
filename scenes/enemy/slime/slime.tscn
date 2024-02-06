@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://by6u0jxfhdbrq"]
+[gd_scene load_steps=13 format=3 uid="uid://by6u0jxfhdbrq"]
 
 [ext_resource type="Script" path="res://scripts/enemy/slime/slime.gd" id="1_2ftyf"]
 [ext_resource type="Texture2D" uid="uid://c8gw8bioipr6r" path="res://assets3/slime.png" id="1_ffdpw"]
@@ -34,6 +34,18 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("HitBox/Collision:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
 }
 
 [sub_resource type="Animation" id="Animation_fmf1c"]
@@ -76,6 +88,18 @@ tracks/2/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("HitBox/Collision:disabled")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.5, 0.7),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, false, true]
 }
 
 [sub_resource type="Animation" id="Animation_h2j04"]
@@ -181,6 +205,9 @@ _data = {
 "walk": SubResource("Animation_1pmv5")
 }
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_skws3"]
+radius = 6.08276
+
 [node name="Slime" type="CharacterBody2D" node_paths=PackedStringArray("_animation", "_texture") groups=["enemy"]]
 collision_layer = 4
 script = ExtResource("1_2ftyf")
@@ -193,6 +220,7 @@ hframes = 7
 vframes = 5
 
 [node name="Collision" type="CollisionShape2D" parent="."]
+visible = false
 position = Vector2(0, 2)
 shape = SubResource("RectangleShape2D_remnf")
 
@@ -201,6 +229,7 @@ collision_layer = 0
 collision_mask = 2
 
 [node name="Collision" type="CollisionShape2D" parent="DetectionArea"]
+visible = false
 shape = SubResource("CircleShape2D_0v6uw")
 
 [node name="Animation" type="AnimationPlayer" parent="."]
@@ -209,6 +238,16 @@ libraries = {
 }
 autoplay = "idle"
 
+[node name="HitBox" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
+
+[node name="Collision" type="CollisionShape2D" parent="HitBox"]
+position = Vector2(0, 2)
+shape = SubResource("CircleShape2D_skws3")
+disabled = true
+
 [connection signal="body_entered" from="DetectionArea" to="." method="_on_detection_area_body_entered"]
 [connection signal="body_exited" from="DetectionArea" to="." method="_on_detection_area_body_exited"]
 [connection signal="animation_finished" from="Animation" to="." method="_on_animation_animation_finished"]
+[connection signal="body_entered" from="HitBox" to="." method="_on_hit_box_body_entered"]

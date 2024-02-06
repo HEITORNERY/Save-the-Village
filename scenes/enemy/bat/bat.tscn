@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://c03g6t3tvq2by"]
+[gd_scene load_steps=17 format=3 uid="uid://c03g6t3tvq2by"]
 
 [ext_resource type="Script" path="res://scripts/enemy/bat/bat.gd" id="1_g8783"]
 [ext_resource type="Texture2D" uid="uid://drebah5667o3m" path="res://assets3/morcegodead.png" id="2_e4j8x"]
@@ -64,6 +64,30 @@ tracks/3/keys = {
 "update": 1,
 "values": [0, 1, 2, 3, 4, 5, 6]
 }
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("HitBox/Collision:shape:size")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(24, 13)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("HitBox/Collision:disabled")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
 
 [sub_resource type="Animation" id="Animation_fmf1c"]
 resource_name = "attack"
@@ -115,6 +139,30 @@ tracks/3/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1),
 "update": 1,
 "values": [0, 1, 2, 3, 4]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("HitBox/Collision:shape:size")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(24, 13)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("HitBox/Collision:disabled")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
 }
 
 [sub_resource type="Animation" id="Animation_h2j04"]
@@ -302,6 +350,9 @@ _data = {
 "walk": SubResource("Animation_1pmv5")
 }
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nl1lw"]
+size = Vector2(24, 13)
+
 [node name="Bat" type="CharacterBody2D" node_paths=PackedStringArray("_animation", "_texture") groups=["enemy"]]
 collision_layer = 4
 script = ExtResource("1_g8783")
@@ -313,6 +364,7 @@ texture = ExtResource("2_tiak8")
 hframes = 7
 
 [node name="Collision" type="CollisionShape2D" parent="."]
+visible = false
 position = Vector2(1, 2)
 shape = SubResource("RectangleShape2D_snqew")
 
@@ -321,6 +373,7 @@ collision_layer = 0
 collision_mask = 2
 
 [node name="Collision" type="CollisionShape2D" parent="DetectionArea"]
+visible = false
 shape = SubResource("CircleShape2D_0v6uw")
 
 [node name="Animation" type="AnimationPlayer" parent="."]
@@ -329,6 +382,16 @@ libraries = {
 }
 autoplay = "RESET"
 
+[node name="HitBox" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
+
+[node name="Collision" type="CollisionShape2D" parent="HitBox"]
+position = Vector2(-1, -1.5)
+shape = SubResource("RectangleShape2D_nl1lw")
+disabled = true
+
 [connection signal="body_entered" from="DetectionArea" to="." method="_on_detection_area_body_entered"]
 [connection signal="body_exited" from="DetectionArea" to="." method="_on_detection_area_body_exited"]
 [connection signal="animation_finished" from="Animation" to="." method="_on_animation_animation_finished"]
+[connection signal="body_entered" from="HitBox" to="." method="_on_hit_box_body_entered"]

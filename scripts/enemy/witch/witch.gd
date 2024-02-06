@@ -25,6 +25,7 @@ func _physics_process(_delta: float) -> void:
 		# A direction_to normaliza esse valor de vector em -1 a 1
 		velocity = _direction * 40 # velocidade do slime na direção do player
 		move_and_slide()
+		_attack()
 	dead()
 		
 func _animate() -> void:
@@ -50,11 +51,21 @@ func _on_animation_animation_finished(anim_name: String) -> void:
 	match anim_name:
 		'dead': 
 			queue_free()
+		'attack':
+			set_physics_process(true)
 
 func dead() -> void:
 	if health <= 0:
 		_animation.play('dead')
 
-func _on_hit_area_body_entered(body) -> void:
-	if body.is_in_group('character'):
+func _attack() -> void:
+	if _player_ref.global_position.x - global_position.x >= -6 and _player_ref.global_position.x - global_position.x <= 0:
 		_animation.play('attack')
+	elif _player_ref.global_position.x - global_position.x <= 6 and _player_ref.global_position.x - global_position.x > 0:
+		_animation.play('attack')
+
+
+func _on_hit_area_body_entered(body):
+	if body.is_in_group('character'):
+		_player_ref = body # A referência ao player foi criada
+		_player_ref.maxHealth -= damage
