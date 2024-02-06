@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://p6qwkcdvvkvp"]
+[gd_scene load_steps=13 format=3 uid="uid://p6qwkcdvvkvp"]
 
 [ext_resource type="Texture2D" uid="uid://3ss735shb36u" path="res://Tilesets/TilesetHole.png" id="1_7e1tt"]
 [ext_resource type="Texture2D" uid="uid://ku2wkwsre66c" path="res://Tilesets/TilesetDungeon.png" id="2_bwqx7"]
@@ -8,6 +8,7 @@
 [ext_resource type="Script" path="res://scripts/world/cave2.gd" id="6_f2qip"]
 [ext_resource type="Script" path="res://scripts/world/cave3.gd" id="7_xfitc"]
 [ext_resource type="PackedScene" uid="uid://c03g6t3tvq2by" path="res://scenes/enemy/bat/bat.tscn" id="8_ig0xw"]
+[ext_resource type="PackedScene" uid="uid://cccu4dkagcqme" path="res://scenes/hud/controls.tscn" id="9_1rwhc"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_k1jlo"]
 texture = ExtResource("1_7e1tt")
@@ -410,3 +411,5 @@ position = Vector2(617, 147)
 
 [node name="Bat8" parent="TileMap" instance=ExtResource("8_ig0xw")]
 position = Vector2(614, 268)
+
+[node name="Controls" parent="." instance=ExtResource("9_1rwhc")]

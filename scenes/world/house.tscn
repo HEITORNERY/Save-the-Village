@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://dwr56wlfpyuhf"]
+[gd_scene load_steps=14 format=3 uid="uid://dwr56wlfpyuhf"]
 
 [ext_resource type="Texture2D" uid="uid://bo6ujpxa1k604" path="res://terrain/wooden.png" id="1_w350h"]
 [ext_resource type="Texture2D" uid="uid://diuvbnmn5t7oj" path="res://terrain/walls.png" id="2_1v7in"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://bmpcii1ip627t" path="res://scenes/enemy/spirit/Spirit.tscn" id="4_ys313"]
 [ext_resource type="PackedScene" uid="uid://botk3eay5ljcg" path="res://scenes/world/door_component_2.tscn" id="6_de1l2"]
 [ext_resource type="Script" path="res://scripts/world/door_component2.gd" id="7_0r2pb"]
+[ext_resource type="PackedScene" uid="uid://cccu4dkagcqme" path="res://scenes/hud/controls.tscn" id="9_h4m1n"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_g8lwg"]
 texture = ExtResource("1_w350h")
@@ -220,3 +221,5 @@ tilemap = NodePath("../../TileMap")
 [node name="DoorComponent2" parent="." instance=ExtResource("6_de1l2")]
 position = Vector2(144, 0)
 script = ExtResource("7_0r2pb")
+
+[node name="Controls" parent="." instance=ExtResource("9_h4m1n")]

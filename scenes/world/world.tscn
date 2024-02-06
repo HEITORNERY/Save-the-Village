@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://bgxwkylkwpl3m"]
+[gd_scene load_steps=20 format=3 uid="uid://bgxwkylkwpl3m"]
 
 [ext_resource type="PackedScene" uid="uid://cyuok7e3a1lkd" path="res://scenes/player/player.tscn" id="1_qd1gl"]
 [ext_resource type="Texture2D" uid="uid://655kiik8gbg3" path="res://Tilesets/TilesetNature.png" id="2_1a7n7"]
@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://bryngf105hpvg" path="res://scenes/world/cave.tscn" id="10_ckk4w"]
 [ext_resource type="Script" path="res://scripts/world/cave4.gd" id="11_m6t7t"]
 [ext_resource type="Script" path="res://scripts/world/cave5.gd" id="12_4wf2o"]
+[ext_resource type="PackedScene" uid="uid://cccu4dkagcqme" path="res://scenes/hud/controls.tscn" id="13_6k2i1"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_t1ta4"]
 texture = ExtResource("2_mirri")
@@ -2601,3 +2602,5 @@ script = ExtResource("11_m6t7t")
 [node name="Cave5" parent="TileMap" instance=ExtResource("10_ckk4w")]
 position = Vector2(688, 427)
 script = ExtResource("12_4wf2o")
+
+[node name="Controls" parent="." instance=ExtResource("13_6k2i1")]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://d1dbefiktajfr"]
+[gd_scene load_steps=13 format=3 uid="uid://d1dbefiktajfr"]
 
 [ext_resource type="Texture2D" uid="uid://3ss735shb36u" path="res://Tilesets/TilesetHole.png" id="1_dqhyx"]
 [ext_resource type="Texture2D" uid="uid://ku2wkwsre66c" path="res://Tilesets/TilesetDungeon.png" id="2_ahk63"]
@@ -8,6 +8,7 @@
 [ext_resource type="Script" path="res://scripts/world/cave7.gd" id="6_k1evg"]
 [ext_resource type="Script" path="res://scripts/world/cave8.gd" id="7_b438t"]
 [ext_resource type="PackedScene" uid="uid://c13hdluh83kvj" path="res://scenes/enemy/skeleton/skeleton.tscn" id="8_0o24o"]
+[ext_resource type="PackedScene" uid="uid://cccu4dkagcqme" path="res://scenes/hud/controls.tscn" id="9_4wi0n"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_k1jlo"]
 texture = ExtResource("1_dqhyx")
@@ -470,3 +471,5 @@ endPoint = NodePath("../Skeleton/Marker2D")
 
 [node name="Marker2D" type="Marker2D" parent="TileMap/Skeleton12"]
 position = Vector2(0, -52)
+
+[node name="Controls" parent="." instance=ExtResource("9_4wi0n")]
