@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://cvnae5ok6adw7"]
+[gd_scene load_steps=12 format=3 uid="uid://cvnae5ok6adw7"]
 
 [ext_resource type="Script" path="res://scripts/world/final.gd" id="1_7cmly"]
 [ext_resource type="Texture2D" uid="uid://c4bnbtkpvs3cx" path="res://Tilesets/TilesetFloorB.png" id="1_qukuy"]
@@ -8,6 +8,7 @@
 [ext_resource type="Script" path="res://scripts/world/cave6.gd" id="4_yel53"]
 [ext_resource type="PackedScene" uid="uid://bu474gftt8ytn" path="res://scenes/npc/cavaleiro/cavaleiroheitor.tscn" id="6_codbr"]
 [ext_resource type="PackedScene" uid="uid://bvv51nr28igrt" path="res://scenes/enemy/wolf/wolf.tscn" id="8_6yxpy"]
+[ext_resource type="PackedScene" uid="uid://dh2km5rmuicyu" path="res://scenes/enemy/witch/witch.tscn" id="9_rn0rg"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1wpu3"]
 texture = ExtResource("1_qukuy")
@@ -300,5 +301,8 @@ position = Vector2(544, 218)
 
 [node name="Wolf8" parent="TileMap" instance=ExtResource("8_6yxpy")]
 position = Vector2(551, 321)
+
+[node name="Witch" parent="TileMap" instance=ExtResource("9_rn0rg")]
+position = Vector2(601, 271)
 
 [node name="HUD" type="CanvasLayer" parent="."]
