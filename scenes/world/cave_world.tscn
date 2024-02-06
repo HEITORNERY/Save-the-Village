@@ -1,6 +1,7 @@
-[gd_scene load_steps=13 format=3 uid="uid://p6qwkcdvvkvp"]
+[gd_scene load_steps=15 format=3 uid="uid://p6qwkcdvvkvp"]
 
 [ext_resource type="Texture2D" uid="uid://3ss735shb36u" path="res://Tilesets/TilesetHole.png" id="1_7e1tt"]
+[ext_resource type="Script" path="res://scripts/world/cave_world.gd" id="1_cx04o"]
 [ext_resource type="Texture2D" uid="uid://ku2wkwsre66c" path="res://Tilesets/TilesetDungeon.png" id="2_bwqx7"]
 [ext_resource type="PackedScene" uid="uid://cyuok7e3a1lkd" path="res://scenes/player/player.tscn" id="3_6qk3h"]
 [ext_resource type="Script" path="res://scripts/player/camera.gd" id="4_3gka6"]
@@ -9,6 +10,7 @@
 [ext_resource type="Script" path="res://scripts/world/cave3.gd" id="7_xfitc"]
 [ext_resource type="PackedScene" uid="uid://c03g6t3tvq2by" path="res://scenes/enemy/bat/bat.tscn" id="8_ig0xw"]
 [ext_resource type="PackedScene" uid="uid://cccu4dkagcqme" path="res://scenes/hud/controls.tscn" id="9_1rwhc"]
+[ext_resource type="AudioStream" uid="uid://dnikftboexpig" path="res://sounds/cave-wind-10-76283.ogg" id="10_lftu4"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_k1jlo"]
 texture = ExtResource("1_7e1tt")
@@ -360,6 +362,7 @@ sources/5 = SubResource("TileSetAtlasSource_1a1nv")
 
 [node name="CaveWorld" type="Node2D"]
 self_modulate = Color(0.00784314, 0.00784314, 0.00784314, 1)
+script = ExtResource("1_cx04o")
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_fhw0d")
@@ -413,3 +416,6 @@ position = Vector2(617, 147)
 position = Vector2(614, 268)
 
 [node name="Controls" parent="." instance=ExtResource("9_1rwhc")]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("10_lftu4")

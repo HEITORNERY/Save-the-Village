@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://c41t4wgx7ht48"]
+[gd_scene load_steps=22 format=3 uid="uid://c41t4wgx7ht48"]
 
 [ext_resource type="Script" path="res://scripts/world/initial_scene.gd" id="1_po1xw"]
 [ext_resource type="Texture2D" uid="uid://cx5maiu507ntu" path="res://terrain/grass.png" id="1_y5kf1"]
@@ -14,6 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://bryngf105hpvg" path="res://scenes/world/cave.tscn" id="11_pxryp"]
 [ext_resource type="PackedScene" uid="uid://dlkso31v300cy" path="res://scenes/npc/guerreirovenancio.tscn" id="13_unti6"]
 [ext_resource type="PackedScene" uid="uid://cccu4dkagcqme" path="res://scenes/hud/controls.tscn" id="14_1d72r"]
+[ext_resource type="AudioStream" uid="uid://dfs5p5ijq8ak6" path="res://sounds/cloud2-102007.ogg" id="15_ai5g6"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_idvn3"]
 texture = ExtResource("1_y5kf1")
@@ -573,3 +574,7 @@ position = Vector2(96, 3)
 [node name="HUD" type="CanvasLayer" parent="."]
 
 [node name="Controls" parent="." instance=ExtResource("14_1d72r")]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("15_ai5g6")
+volume_db = -20.0

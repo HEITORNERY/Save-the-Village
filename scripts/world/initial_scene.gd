@@ -13,6 +13,9 @@ var _dialog_data : Dictionary = {
 
 const _DIALOG_SCREEN : PackedScene = preload('res://scenes/dialog/dialog_screen.tscn')
 
+func _ready():
+	$AudioStreamPlayer.play()
+
 func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed('ui_select'):
 			var _new_dialog : DialogScreen = _DIALOG_SCREEN.instantiate()

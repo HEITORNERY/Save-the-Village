@@ -9,11 +9,11 @@ class_name  player
 @onready var animation : AnimationPlayer = $Animation
 
 # vida do player
-@export var maxHealth : float = 5.0
-@onready var currentHealth : float = 5.0
+@export var maxHealth : float = 10.0
+@onready var currentHealth : float = 10.0
 
 # dano do player
-var damage : int = 4
+var damage : int = 6
 
 func _ready() -> void:
 	$Lifebar.show_percentage = false

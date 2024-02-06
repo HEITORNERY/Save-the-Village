@@ -1,5 +1,6 @@
-[gd_scene load_steps=14 format=3 uid="uid://dwr56wlfpyuhf"]
+[gd_scene load_steps=16 format=3 uid="uid://dwr56wlfpyuhf"]
 
+[ext_resource type="Script" path="res://scripts/world/house.gd" id="1_fvkyx"]
 [ext_resource type="Texture2D" uid="uid://bo6ujpxa1k604" path="res://terrain/wooden.png" id="1_w350h"]
 [ext_resource type="Texture2D" uid="uid://diuvbnmn5t7oj" path="res://terrain/walls.png" id="2_1v7in"]
 [ext_resource type="PackedScene" uid="uid://cyuok7e3a1lkd" path="res://scenes/player/player.tscn" id="3_1cy3q"]
@@ -9,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://botk3eay5ljcg" path="res://scenes/world/door_component_2.tscn" id="6_de1l2"]
 [ext_resource type="Script" path="res://scripts/world/door_component2.gd" id="7_0r2pb"]
 [ext_resource type="PackedScene" uid="uid://cccu4dkagcqme" path="res://scenes/hud/controls.tscn" id="9_h4m1n"]
+[ext_resource type="AudioStream" uid="uid://dfs5p5ijq8ak6" path="res://sounds/cloud2-102007.ogg" id="10_6lgxm"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_g8lwg"]
 texture = ExtResource("1_w350h")
@@ -178,6 +180,7 @@ sources/1 = SubResource("TileSetAtlasSource_0iww5")
 sources/5 = SubResource("TileSetAtlasSource_7ywew")
 
 [node name="House" type="Node2D"]
+script = ExtResource("1_fvkyx")
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_hdr86")
@@ -223,3 +226,7 @@ position = Vector2(144, 0)
 script = ExtResource("7_0r2pb")
 
 [node name="Controls" parent="." instance=ExtResource("9_h4m1n")]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("10_6lgxm")
+volume_db = -20.0

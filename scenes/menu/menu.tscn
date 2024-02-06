@@ -1,0 +1,61 @@
+[gd_scene load_steps=10 format=3 uid="uid://f20eawcid1rv"]
+
+[ext_resource type="Texture2D" uid="uid://lofbla7h50ad" path="res://buttons/play_normal.png" id="1_d60qf"]
+[ext_resource type="Texture2D" uid="uid://b8e7y6jwl1igs" path="res://menu_background.jpeg" id="1_t730x"]
+[ext_resource type="Script" path="res://scripts/menu/menu.gd" id="1_ub3tq"]
+[ext_resource type="Texture2D" uid="uid://bt7h5m6qeppcr" path="res://buttons/play_pressed.png" id="2_367wk"]
+[ext_resource type="Texture2D" uid="uid://bu845vc3cuti6" path="res://buttons/credits_normal.png" id="3_kqm05"]
+[ext_resource type="Texture2D" uid="uid://cfgfohpy66ti1" path="res://buttons/credits_pressed.png" id="4_kbwjb"]
+[ext_resource type="Texture2D" uid="uid://coqt8nuaknt82" path="res://buttons/quit_normal.png" id="5_af0op"]
+[ext_resource type="Texture2D" uid="uid://cmc4gceqcm05b" path="res://buttons/quit_pressed.png" id="6_y0yg8"]
+[ext_resource type="AudioStream" uid="uid://dni2fm6bep6w6" path="res://sounds/adventuremusic-20456.ogg" id="9_6kgmi"]
+
+[node name="Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ub3tq")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Background" type="TextureRect" parent="MarginContainer"]
+layout_mode = 2
+texture = ExtResource("1_t730x")
+expand_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="Start" type="TouchScreenButton" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+position = Vector2(71, 130)
+texture_normal = ExtResource("1_d60qf")
+texture_pressed = ExtResource("2_367wk")
+action = "ui_accept"
+
+[node name="Credits" type="TouchScreenButton" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+position = Vector2(140, 130)
+texture_normal = ExtResource("3_kqm05")
+texture_pressed = ExtResource("4_kbwjb")
+action = "ui_select"
+
+[node name="Quit" type="TouchScreenButton" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+position = Vector2(215, 130)
+texture_normal = ExtResource("5_af0op")
+texture_pressed = ExtResource("6_y0yg8")
+action = "end_screen"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("9_6kgmi")

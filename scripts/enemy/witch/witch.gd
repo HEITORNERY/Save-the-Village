@@ -27,6 +27,7 @@ func _physics_process(_delta: float) -> void:
 		move_and_slide()
 		_attack()
 	dead()
+	
 		
 func _animate() -> void:
 	if velocity.x < 0:
@@ -53,10 +54,16 @@ func _on_animation_animation_finished(anim_name: String) -> void:
 			queue_free()
 		'attack':
 			set_physics_process(true)
+		'hit':
+			set_physics_process(true)
 
 func dead() -> void:
 	if health <= 0:
 		_animation.play('dead')
+		get_tree().change_scene_to_file('res://scenes/credits/pos_credits_scene.tscn')
+		
+		
+		
 
 func _attack() -> void:
 	if _player_ref.global_position.x - global_position.x >= -6 and _player_ref.global_position.x - global_position.x <= 0:

@@ -1,0 +1,48 @@
+[gd_scene load_steps=6 format=3 uid="uid://bbhb3t37bt5qa"]
+
+[ext_resource type="Script" path="res://scripts/credits/credits.gd" id="1_66b00"]
+[ext_resource type="Texture2D" uid="uid://ch5m3nf7t64hg" path="res://logo_brothers_united.jpeg" id="1_vhodh"]
+[ext_resource type="Texture2D" uid="uid://c3bkbvgv5uyak" path="res://buttons/esc_normal.png" id="2_uab0b"]
+[ext_resource type="Texture2D" uid="uid://qfvl3tgq8ofi" path="res://buttons/esc_pressed.png" id="3_07ngb"]
+[ext_resource type="AudioStream" uid="uid://dni2fm6bep6w6" path="res://sounds/adventuremusic-20456.ogg" id="5_tt8rp"]
+
+[node name="Credits" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 320.0
+offset_bottom = 180.0
+script = ExtResource("1_66b00")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer"]
+modulate = Color(1, 1, 1, 0.521569)
+layout_mode = 2
+texture = ExtResource("1_vhodh")
+expand_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer"]
+layout_mode = 2
+text = "Este jogo foi programado por José Heitor 
+Nery Viana, assim como o design de cada 
+nível. Os personagens e inimigos foram
+modificados de assets gratuitos da inter-
+net, além de ter sido criados assets de au
+-toria própria por Antônio Venâncio Nery
+Silva."
+
+[node name="ReturnToMenu" type="TouchScreenButton" parent="."]
+position = Vector2(283, 157)
+scale = Vector2(1, 0.625)
+texture_normal = ExtResource("2_uab0b")
+texture_pressed = ExtResource("3_07ngb")
+action = "end_screen"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_tt8rp")

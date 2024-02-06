@@ -1,0 +1,38 @@
+[gd_scene load_steps=5 format=3 uid="uid://liog6mbcdsqk"]
+
+[ext_resource type="Script" path="res://scripts/credits/credits.gd" id="1_icpaw"]
+[ext_resource type="Texture2D" uid="uid://ch5m3nf7t64hg" path="res://logo_brothers_united.jpeg" id="2_wp6md"]
+[ext_resource type="Texture2D" uid="uid://c3bkbvgv5uyak" path="res://buttons/esc_normal.png" id="3_nfqbw"]
+[ext_resource type="Texture2D" uid="uid://qfvl3tgq8ofi" path="res://buttons/esc_pressed.png" id="4_uxlnd"]
+
+[node name="References" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 320.0
+offset_bottom = 180.0
+script = ExtResource("1_icpaw")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer"]
+modulate = Color(1, 1, 1, 0.521569)
+layout_mode = 2
+texture = ExtResource("2_wp6md")
+expand_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer"]
+layout_mode = 2
+text = "Music by <a href=\"https://pixabay.com/pt/users/top-flow-28521292/?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=188794\">Sergio Prosvirini</a> from <a href=\"https://pixabay.com//?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=188794\">Pixabay</a>"
+
+[node name="ReturnToMenu" type="TouchScreenButton" parent="."]
+position = Vector2(283, 157)
+scale = Vector2(1, 0.625)
+texture_normal = ExtResource("3_nfqbw")
+texture_pressed = ExtResource("4_uxlnd")
+action = "end_screen"

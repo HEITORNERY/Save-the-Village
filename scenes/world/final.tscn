@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://cvnae5ok6adw7"]
+[gd_scene load_steps=14 format=3 uid="uid://cvnae5ok6adw7"]
 
 [ext_resource type="Script" path="res://scripts/world/final.gd" id="1_7cmly"]
 [ext_resource type="Texture2D" uid="uid://c4bnbtkpvs3cx" path="res://Tilesets/TilesetFloorB.png" id="1_qukuy"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://bvv51nr28igrt" path="res://scenes/enemy/wolf/wolf.tscn" id="8_6yxpy"]
 [ext_resource type="PackedScene" uid="uid://dh2km5rmuicyu" path="res://scenes/enemy/witch/witch.tscn" id="9_rn0rg"]
 [ext_resource type="PackedScene" uid="uid://cccu4dkagcqme" path="res://scenes/hud/controls.tscn" id="10_kokaa"]
+[ext_resource type="AudioStream" uid="uid://b5rfumxux3mm6" path="res://sounds/bitty-boss-54953_1.ogg" id="11_cltt6"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1wpu3"]
 texture = ExtResource("1_qukuy")
@@ -309,3 +310,7 @@ position = Vector2(601, 271)
 [node name="HUD" type="CanvasLayer" parent="."]
 
 [node name="Controls" parent="." instance=ExtResource("10_kokaa")]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("11_cltt6")
+volume_db = -20.0
