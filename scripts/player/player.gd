@@ -9,8 +9,8 @@ class_name  player
 @onready var animation : AnimationPlayer = $Animation
 
 # vida do player
-@export var maxHealth : float = 10.0
-@onready var currentHealth : float = 10.0
+@export var maxHealth : float = 7.0
+@onready var currentHealth : float = 7.0
 
 # dano do player
 var damage : int = 6

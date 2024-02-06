@@ -8,7 +8,7 @@ var _player_ref = null
 @export var _texture : Sprite2D
 
 # dano 
-var damage = 1
+var damage = 4.0
 
 # Criar a vida 
 var health : int = 24

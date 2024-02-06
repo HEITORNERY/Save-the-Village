@@ -38,8 +38,8 @@ net, além de ter sido criados assets de au
 Silva."
 
 [node name="ReturnToMenu" type="TouchScreenButton" parent="."]
-position = Vector2(283, 157)
-scale = Vector2(1, 0.625)
+position = Vector2(288, 161)
+scale = Vector2(0.53125, 0.4375)
 texture_normal = ExtResource("2_uab0b")
 texture_pressed = ExtResource("3_07ngb")
 action = "end_screen"
