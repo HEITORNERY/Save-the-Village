@@ -24,70 +24,70 @@
 [node name="Controls" type="CanvasLayer"]
 
 [node name="ui_left" type="TouchScreenButton" parent="."]
-position = Vector2(16, 160)
-scale = Vector2(0.5, 0.5)
+position = Vector2(2, 139)
+scale = Vector2(1.28125, 1.1875)
 texture_normal = ExtResource("1_d4nk4")
 texture_pressed = ExtResource("2_amyrc")
 action = "ui_left"
 
 [node name="ui_right" type="TouchScreenButton" parent="."]
-position = Vector2(64, 160)
-scale = Vector2(0.5, 0.5)
+position = Vector2(94, 137)
+scale = Vector2(1.28125, 1.21875)
 texture_normal = ExtResource("3_ufpdc")
 texture_pressed = ExtResource("4_156ba")
 action = "ui_right"
 
 [node name="ui_down" type="TouchScreenButton" parent="."]
-position = Vector2(40, 160)
-scale = Vector2(0.5, 0.5)
+position = Vector2(49, 137)
+scale = Vector2(1.21875, 1.1875)
 texture_normal = ExtResource("5_tlm10")
 texture_pressed = ExtResource("6_kpbxv")
 action = "ui_down"
 
 [node name="ui_up" type="TouchScreenButton" parent="."]
-position = Vector2(40, 136)
-scale = Vector2(0.5, 0.5)
+position = Vector2(49, 95)
+scale = Vector2(1.21875, 1.125)
 texture_normal = ExtResource("7_6tvrl")
 texture_pressed = ExtResource("8_lkbq4")
 action = "ui_up"
 
 [node name="ui_chat" type="TouchScreenButton" parent="."]
-position = Vector2(120, 160)
+position = Vector2(139, 160)
 scale = Vector2(0.592592, 0.365385)
 texture_normal = ExtResource("9_vo6sc")
 texture_pressed = ExtResource("10_jcfcj")
 action = "ui_select"
 
 [node name="ui_attack_up" type="TouchScreenButton" parent="."]
-position = Vector2(248, 144)
-scale = Vector2(0.5, 0.365385)
+position = Vector2(246, 105)
+scale = Vector2(1.09375, 0.927885)
 texture_normal = ExtResource("11_l1rc5")
 texture_pressed = ExtResource("12_mtjvq")
 action = "attack_up"
 
 [node name="ui_attack_down" type="TouchScreenButton" parent="."]
-position = Vector2(248, 160)
-scale = Vector2(0.5, 0.365385)
+position = Vector2(248, 143)
+scale = Vector2(1.0625, 0.9375)
 texture_normal = ExtResource("13_bo1l3")
 texture_pressed = ExtResource("14_noffw")
 action = "attack_down"
 
 [node name="ui_attack_right" type="TouchScreenButton" parent="."]
-position = Vector2(272, 160)
-scale = Vector2(0.5, 0.365385)
+position = Vector2(287, 144)
+scale = Vector2(0.96875, 0.90625)
 texture_normal = ExtResource("15_pjm8b")
 texture_pressed = ExtResource("16_ypu10")
 action = "attack_right"
 
 [node name="ui_attack_left" type="TouchScreenButton" parent="."]
-position = Vector2(224, 160)
-scale = Vector2(0.499999, 0.365385)
+position = Vector2(208, 144)
+scale = Vector2(0.999999, 0.865385)
 texture_normal = ExtResource("17_nucrn")
 texture_pressed = ExtResource("18_2crc5")
 action = "attack_left"
 
 [node name="ui_pass_chat" type="TouchScreenButton" parent="."]
-position = Vector2(184, 152)
+position = Vector2(180, 150)
 scale = Vector2(0.592592, 0.365385)
 texture_normal = ExtResource("19_5srkw")
 texture_pressed = ExtResource("20_764ha")

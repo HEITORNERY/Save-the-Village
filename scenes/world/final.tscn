@@ -309,8 +309,8 @@ position = Vector2(601, 271)
 
 [node name="HUD" type="CanvasLayer" parent="."]
 
-[node name="Controls" parent="." instance=ExtResource("10_kokaa")]
-
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("11_cltt6")
 volume_db = -20.0
+
+[node name="Controls" parent="." instance=ExtResource("10_kokaa")]
